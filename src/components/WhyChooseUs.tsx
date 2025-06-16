@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
           {/* Text Section */}
           <div className="order-2 lg:order-1">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1F2A44] tracking-tight mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1F2A44] tracking-tight mb-8 font-bankBold">
               Why Choose AGAPE Roof Cleaning?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -115,7 +115,7 @@ const WhyChooseUs = () => {
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-6 w-6 text-[#FF69B4] flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-[#1F2A44]">
+                      <h3 className="font-semibold text-[#1F2A44] font-bankMedium">
                         {reason.title}
                       </h3>
                       <p className="text-gray-600 leading-relaxed">

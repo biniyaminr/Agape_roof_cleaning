@@ -39,3 +39,38 @@
     opacity: 1;
   }
 }
+
+@font-face {
+  font-family: "BankGothicLight";
+  src: url("./assets/fonts/BankGothic-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicMedium";
+  src: url("./assets/fonts/BankGothic-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicBold";
+  src: url("./assets/fonts/BankGothic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicMdBT";
+  src: url("./assets/fonts/BankGothic-MdBT.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicMediumBT";
+  src: url("./assets/fonts/BankGothicMediumBT.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}

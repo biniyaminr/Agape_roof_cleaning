@@ -281,10 +281,10 @@ const Portfolio: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1F2A44] tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1F2A44] tracking-tight font-bankMedium">
             Our Portfolio
           </h2>
-          <p className="mt-4 text-lg md:text-xl text-gray-700 font-medium">
+          <p className="mt-4 text-lg md:text-xl text-gray-700 font-bankMediumBT">
             Showcasing Excellence in Roof Cleaning and Maintenance
           </p>
           <p className="mt-6 text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">

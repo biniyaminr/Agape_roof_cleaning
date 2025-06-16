@@ -11,10 +11,10 @@ const Services = () => {
           <section id="services" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-[#1F2A44] tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-bold text-[#1F2A44] tracking-tight font-bankMedium">
                   Our Services
                 </h2>
-                <p className="mt-4 text-lg md:text-xl text-gray-700 font-medium">
+                <p className="mt-4 text-lg md:text-xl text-gray-700 font-bankMediumBT">
                   Professional Roof Cleaning Services to Protect and Maintain
                   Your Home
                 </p>
