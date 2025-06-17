@@ -142,13 +142,13 @@ const Navbar = () => {
                 className="h-10 w-10 mr-3 rounded-full"
               />
             </Link>
-            <span className="text-2xl font-semibold text-[#1F2A44]">
+            <span className="text-lg font-semibold text-[#1F2A44] mr-12">
               Agape Roof Cleaning
             </span>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 text-sm">
             <NavLinks onNavClick={handleNavClick} />
           </div>
 

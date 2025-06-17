@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import ServicesList from "./ServicesList";
 import ServiceDetail from "./ServiceDetail";
+import ServiceForm from "./ServiceForm";
 
 const Services = () => {
   return (
@@ -30,6 +31,10 @@ const Services = () => {
 
               {/* Services List */}
               <ServicesList />
+              {/* Service Form */}
+              <div className="mt-20">
+                <ServiceForm />
+              </div>
             </div>
           </section>
         }
