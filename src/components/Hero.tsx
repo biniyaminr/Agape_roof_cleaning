@@ -100,10 +100,10 @@ const Hero = () => {
                     Get a Free Quote
                   </a>
                   <a
-                    href="tel:425-773-3101"
+                    href="tel:619-471-7077"
                     className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-[#FF69B4] bg-white rounded-lg shadow-md hover:bg-gray-100 hover:shadow-lg transition-all duration-300"
                   >
-                    Call Now: (425) 773-3101
+                    Call Now: (619) 471-7077
                   </a>
                 </div>
               </div>

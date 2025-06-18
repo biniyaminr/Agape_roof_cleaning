@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { services } from "./servicesData";
+import emailjs from 'emailjs-com';
 
 const ServiceForm: React.FC = () => {
   const [form, setForm] = useState({
     name: "",
-    address: "",
     phone: "",
     service: services[0]?.title || "",
     email: "",
     pictures: null as FileList | null,
     info: "",
   });
+
+  const [status, setStatus] = useState<null | 'success' | 'error'>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, files } = e.target as any;
@@ -20,10 +22,35 @@ const ServiceForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: handle form submission (API call or email)
-    alert("Form submitted! (Demo)");
+    setStatus(null);
+    const templateParams = {
+      name: form.name,
+      phone: form.phone,
+      service: form.service,
+      email: form.email,
+      info: form.info,
+    };
+    try {
+      await emailjs.send(
+        'service_t14idbm',
+        'template_zghuiin',
+        templateParams,
+        '1mIgF3vQdkm2eyH3P'
+      );
+      setStatus('success');
+      setForm({
+        name: '',
+        phone: '',
+        service: services[0]?.title || '',
+        email: '',
+        pictures: null,
+        info: '',
+      });
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -38,16 +65,6 @@ const ServiceForm: React.FC = () => {
           onChange={handleChange}
           className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
           required
-        />
-      </div>
-      <div>
-        <label className="block font-medium mb-1">Address:</label>
-        <input
-          type="text"
-          name="address"
-          value={form.address}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
         />
       </div>
       <div>
@@ -71,6 +88,7 @@ const ServiceForm: React.FC = () => {
           {services.map((s) => (
             <option key={s.id} value={s.title}>{s.title}</option>
           ))}
+          <option value="Others">Others</option>
         </select>
       </div>
       <div>
@@ -109,6 +127,12 @@ const ServiceForm: React.FC = () => {
       >
         Submit
       </button>
+      {status === 'success' && (
+        <p className="mt-4 text-green-600 font-semibold text-center">Your message has been sent successfully!</p>
+      )}
+      {status === 'error' && (
+        <p className="mt-4 text-red-600 font-semibold text-center">There was an error sending your message. Please try again later.</p>
+      )}
     </form>
   );
 };

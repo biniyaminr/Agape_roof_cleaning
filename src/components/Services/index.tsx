@@ -31,8 +31,14 @@ const Services = () => {
 
               {/* Services List */}
               <ServicesList />
-              {/* Service Form */}
-              <div className="mt-20">
+              {/* Service Form and Message Side by Side */}
+              <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div className="bg-[#F9FAFB] rounded-lg shadow p-6 md:p-8 flex flex-col justify-center text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-[#1F2A44] mb-4">Send Us a Message</h3>
+                  <p className="text-gray-700 text-base md:text-lg">
+                    Have questions about our roof cleaning services, need help scheduling an appointment, or want to learn more about how we protect and restore your roof? We're here to help!
+                  </p>
+                </div>
                 <ServiceForm />
               </div>
             </div>
