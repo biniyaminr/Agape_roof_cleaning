@@ -131,16 +131,16 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white bg-opacity-60 backdrop-filter backdrop-blur-lg shadow-md fixed w-full z-50">
-      <div className="border border-black mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto pr-3 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           {/* Logo Section */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center gap-2 w-[70%] md:w-auto">
             <img
               src="https://i.ibb.co/PZcpzDB0/agape-main.png"
               alt="Agape Roof Cleaning Logo"
-              className="h-30 w-40 mr-3 rounded-full"
+              className="w-24 h-24 md:h-30 md:w-40 rounded-full"
             />
-            <span className="text-3xl font-semibold text-[#1F2A44] font-bankBold">
+            <span className="text-lg md:text-2xl font-bold text-[#1F2A44] font-bankBold">
               Agape Roof Cleaning
             </span>
           </Link>
