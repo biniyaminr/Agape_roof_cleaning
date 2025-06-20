@@ -8,7 +8,7 @@ import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Portfolio from "./components/Portfolio"; // Import the Portfolio component
+import Portfolio from "./components/Portfolio"; 
 import ServiceForm from "./components/Services/ServiceForm";
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
@@ -46,6 +46,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />{" "}
         </Routes>
         <Footer />
+        
         {showForm && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
             <div className="bg-white rounded-lg shadow-lg p-4 max-w-md w-full relative">

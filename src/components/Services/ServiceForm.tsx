@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { services } from "./servicesData";
+import emailjs from "@emailjs/browser";
 
 const ServiceForm: React.FC = () => {
   const [form, setForm] = useState({
@@ -12,7 +14,11 @@ const ServiceForm: React.FC = () => {
     info: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value, files } = e.target as any;
     setForm((prev) => ({
       ...prev,
@@ -20,15 +26,53 @@ const ServiceForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: handle form submission (API call or email)
-    alert("Form submitted! (Demo)");
+
+    const year = new Date().getFullYear();
+
+    try {
+      await emailjs.send(
+        "", // Service ID
+        "", // Template ID
+        {
+          name: form.name,
+          address: form.address,
+          phone: form.phone,
+          service: form.service,
+          email: form.email,
+          info: form.info,
+          year: year,
+        },
+        "" // Public Key
+      );
+
+      alert("Form submitted successfully!");
+
+      // Reset form
+      setForm({
+        name: "",
+        address: "",
+        phone: "",
+        service: services[0]?.title || "",
+        email: "",
+        pictures: null,
+        info: "",
+      });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
-    <form className="max-w-md mx-auto bg-white p-4 rounded-lg shadow space-y-4 text-sm" onSubmit={handleSubmit}>
-      <h2 className="text-xl font-bold text-center text-[#1F2A44] mb-2">Explore Our Solutions</h2>
+    <form
+      className="max-w-md mx-auto bg-white p-4 rounded-lg shadow space-y-4 text-sm"
+      onSubmit={handleSubmit}
+    >
+      <h2 className="text-xl font-bold text-center text-[#1F2A44] mb-2">
+        Explore Our Solutions
+      </h2>
       <div>
         <label className="block font-medium mb-1">First, Last Name:</label>
         <input
@@ -69,7 +113,9 @@ const ServiceForm: React.FC = () => {
           className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
         >
           {services.map((s) => (
-            <option key={s.id} value={s.title}>{s.title}</option>
+            <option key={s.id} value={s.title}>
+              {s.title}
+            </option>
           ))}
         </select>
       </div>
@@ -84,7 +130,9 @@ const ServiceForm: React.FC = () => {
         />
       </div>
       <div>
-        <label className="block font-medium mb-1">Upload Pictures (optional)</label>
+        <label className="block font-medium mb-1">
+          Upload Pictures (optional)
+        </label>
         <input
           type="file"
           name="pictures"
@@ -94,7 +142,9 @@ const ServiceForm: React.FC = () => {
         />
       </div>
       <div>
-        <label className="block font-medium mb-1">Please provide as much information as you can.</label>
+        <label className="block font-medium mb-1">
+          Please provide as much information as you can.
+        </label>
         <textarea
           name="info"
           value={form.info}
@@ -113,4 +163,4 @@ const ServiceForm: React.FC = () => {
   );
 };
 
-export default ServiceForm; 
+export default ServiceForm;
