@@ -30,7 +30,7 @@ const Contact = () => {
     <section id="contact" className="py-12 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2A44] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2A44] tracking-tight font-bankMedium">
             Contact Us
           </h2>
           <p className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -46,4 +47,43 @@
   to {
     opacity: 1;
   }
+}
+
+@font-face {
+  font-family: "BankGothicLight";
+  src: url("./assets/fonts/BankGothic-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicMedium";
+  src: url("./assets/fonts/BankGothic-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicBold";
+  src: url("./assets/fonts/BankGothic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicMdBT";
+  src: url("./assets/fonts/BankGothic-MdBT.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BankGothicMediumBT";
+  src: url("./assets/fonts/BankGothicMediumBT.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+p, li {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
 }

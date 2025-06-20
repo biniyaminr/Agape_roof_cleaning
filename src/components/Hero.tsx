@@ -82,12 +82,12 @@ const Hero = () => {
               </div>
 
               {/* Content with Animation */}
-              <div className="relative max-w-7xl mx-auto py-12 sm:py-28 md:py-36 px-12 sm:px-16 lg:px-24 text-center h-full flex flex-col justify-start animate-slide-up z-10">
+              <div className="relative max-w-7xl mx-auto py-12 sm:py-28 md:py-36 px-12 sm:px-16 lg:px-24 text-center h-full flex flex-col justify-start animate-slide-up z-10 font-bankBold">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight animate-fade-in">
                   {slide.title}
                 </h1>
 
-                <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
+                <p className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay" style={{ fontFamily: 'Source Sans 3, system-ui, sans-serif' }}>
                   {slide.description}
                 </p>
 

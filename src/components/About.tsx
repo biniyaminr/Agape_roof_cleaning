@@ -41,7 +41,7 @@ const About = () => {
 
           {/* Text Section */}
           <div className="mt-12 lg:mt-0">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1F2A44] tracking-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1F2A44] tracking-tight mb-6 font-bankBold">
               About AGAPE Roof Cleaning
             </h2>
             <div className="prose prose-lg text-gray-600 space-y-5">

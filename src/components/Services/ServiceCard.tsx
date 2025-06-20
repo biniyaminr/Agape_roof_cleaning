@@ -21,7 +21,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           className="w-full h-64 object-cover rounded-lg"
         />
       </div>
-      <h3 className="text-xl font-semibold text-[#1F2A44] mb-3 relative z-10 group-hover:text-[#FF69B4] transition-colors">
+      <h3 className="text-xl font-semibold text-[#1F2A44] mb-3 relative z-10 group-hover:text-[#FF69B4] transition-colors font-bankLight">
         {title}
       </h3>
       <p className="text-gray-600 leading-relaxed relative z-10">

@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">
+            <h3 className="text-white text-lg font-semibold mb-4 font-bankMedium">
               Agape Roof Cleaning
             </h3>
             <p className="text-gray-300 leading-relaxed">
@@ -40,7 +40,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">
+            <h3 className="text-white text-lg font-semibold mb-4 font-bankMedium">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -73,7 +73,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">
+            <h3 className="text-white text-lg font-semibold mb-4 font-bankMedium">
               Contact Information
             </h3>
             <ul className="space-y-2 text-gray-300">
