@@ -50,7 +50,11 @@ const Contact = () => {
               <h3 className="mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-[#1F2A44]">
                 {item.title}
               </h3>
-              {item.link ? (
+              {(item.title === 'Phone' || item.title === 'Email') ? (
+                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-600 break-words" style={{ fontFamily: 'Source Sans 3, system-ui, sans-serif' }}>
+                  <a href={item.link} className="hover:text-[#FF69B4] transition-colors duration-200" style={{ fontFamily: 'inherit' }}>{item.content}</a>
+                </p>
+              ) : item.link ? (
                 <a
                   href={item.link}
                   className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-600 hover:text-[#FF69B4] transition-colors duration-200 break-words"

@@ -136,9 +136,9 @@ const Navbar = () => {
           {/* Logo Section */}
           <Link to="/" className="flex items-center">
             <img
-              src="https://i.ibb.co/zTFYc7JB/Logo.jpg"
+              src="https://i.ibb.co/PZcpzDB0/agape-main.png"
               alt="Agape Roof Cleaning Logo"
-              className="h-10 w-10 mr-3 rounded-full"
+              className="h-30 w-40 mr-3 rounded-full"
             />
             <span className="text-3xl font-semibold text-[#1F2A44] font-bankBold">
               Agape Roof Cleaning
