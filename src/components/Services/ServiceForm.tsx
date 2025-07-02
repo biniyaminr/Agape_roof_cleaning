@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { services } from "./servicesData";
 import emailjs from "emailjs-com";
+import { FiLoader } from "react-icons/fi";
 
 const ServiceForm: React.FC = () => {
   const [form, setForm] = useState({
@@ -14,6 +15,7 @@ const ServiceForm: React.FC = () => {
   });
 
   const [status, setStatus] = useState<null | "success" | "error">(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -30,6 +32,7 @@ const ServiceForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus(null);
+    setIsLoading(true);
 
     const templateParams = {
       name: form.name,
@@ -46,8 +49,19 @@ const ServiceForm: React.FC = () => {
         templateParams,
         "9OE8iv2iptR5ExjBb"
       )
-      .then(() => setStatus("success"))
-      .catch(() => setStatus("error"));
+      .then(() => {
+        setStatus("success");
+        setForm({
+          name: "",
+          phone: "",
+          service: services[0]?.title || "",
+          email: "",
+          pictures: null,
+          info: "",
+        });
+      })
+      .catch(() => setStatus("error"))
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -58,6 +72,8 @@ const ServiceForm: React.FC = () => {
       <h2 className="text-xl font-bold text-center text-[#1F2A44] mb-2">
         Explore Our Solutions
       </h2>
+
+      {/* Name */}
       <div>
         <label className="block font-medium mb-1">First, Last Name:</label>
         <input
@@ -69,6 +85,8 @@ const ServiceForm: React.FC = () => {
           required
         />
       </div>
+
+      {/* Phone */}
       <div>
         <label className="block font-medium mb-1">Phone:</label>
         <input
@@ -79,6 +97,8 @@ const ServiceForm: React.FC = () => {
           className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
         />
       </div>
+
+      {/* Service */}
       <div>
         <label className="block font-medium mb-1">Select Service:</label>
         <select
@@ -95,6 +115,8 @@ const ServiceForm: React.FC = () => {
           <option value="Others">Others</option>
         </select>
       </div>
+
+      {/* Email */}
       <div>
         <label className="block font-medium mb-1">Email:</label>
         <input
@@ -105,6 +127,8 @@ const ServiceForm: React.FC = () => {
           className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
         />
       </div>
+
+      {/* Pictures */}
       <div>
         <label className="block font-medium mb-1">
           Upload Pictures (optional)
@@ -117,6 +141,8 @@ const ServiceForm: React.FC = () => {
           multiple
         />
       </div>
+
+      {/* Info */}
       <div>
         <label className="block font-medium mb-1">
           Please provide as much information as you can.
@@ -129,12 +155,26 @@ const ServiceForm: React.FC = () => {
           rows={3}
         />
       </div>
+
+      {/* Submit */}
       <button
         type="submit"
-        className="w-full bg-[#1F2A44] text-white font-semibold py-1 rounded hover:bg-[#FF69B4] transition-colors text-sm"
+        disabled={isLoading}
+        className={`w-full flex items-center justify-center gap-2 bg-[#1F2A44] text-white font-semibold py-1 rounded transition-colors text-sm ${
+          isLoading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#FF69B4]"
+        }`}
       >
-        Submit
+        {isLoading ? (
+          <>
+            <FiLoader className="animate-spin" />
+            Sending...
+          </>
+        ) : (
+          "Submit"
+        )}
       </button>
+
+      {/* Status Message */}
       {status === "success" && (
         <p className="mt-4 text-green-600 font-semibold text-center">
           Your message has been sent successfully!
