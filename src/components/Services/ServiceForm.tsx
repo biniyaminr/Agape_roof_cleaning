@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { services } from "./servicesData";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 
 const ServiceForm: React.FC = () => {
   const [form, setForm] = useState({
@@ -13,9 +13,13 @@ const ServiceForm: React.FC = () => {
     info: "",
   });
 
-  const [status, setStatus] = useState<null | 'success' | 'error'>(null);
+  const [status, setStatus] = useState<null | "success" | "error">(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value, files } = e.target as any;
     setForm((prev) => ({
       ...prev,
@@ -26,6 +30,7 @@ const ServiceForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus(null);
+
     const templateParams = {
       name: form.name,
       phone: form.phone,
@@ -33,25 +38,16 @@ const ServiceForm: React.FC = () => {
       email: form.email,
       info: form.info,
     };
-    try {
-      await emailjs.send(
-        'service_t14idbm',
-        'template_zghuiin',
+
+    emailjs
+      .send(
+        "service_69pd2cb",
+        "template_3dc7y0l",
         templateParams,
-        '1mIgF3vQdkm2eyH3P'
-      );
-      setStatus('success');
-      setForm({
-        name: '',
-        phone: '',
-        service: services[0]?.title || '',
-        email: '',
-        pictures: null,
-        info: '',
-      });
-    } catch (error) {
-      setStatus('error');
-    }
+        "9OE8iv2iptR5ExjBb"
+      )
+      .then(() => setStatus("success"))
+      .catch(() => setStatus("error"));
   };
 
   return (
@@ -139,11 +135,15 @@ const ServiceForm: React.FC = () => {
       >
         Submit
       </button>
-      {status === 'success' && (
-        <p className="mt-4 text-green-600 font-semibold text-center">Your message has been sent successfully!</p>
+      {status === "success" && (
+        <p className="mt-4 text-green-600 font-semibold text-center">
+          Your message has been sent successfully!
+        </p>
       )}
-      {status === 'error' && (
-        <p className="mt-4 text-red-600 font-semibold text-center">There was an error sending your message. Please try again later.</p>
+      {status === "error" && (
+        <p className="mt-4 text-red-600 font-semibold text-center">
+          There was an error sending your message. Please try again later.
+        </p>
       )}
     </form>
   );
